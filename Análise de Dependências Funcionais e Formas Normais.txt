@@ -37,21 +37,21 @@ Formas:
 
 Piloto(idColaborador->Colaborador*, numero, numeroPontos, tipo, idEquipa->Equipa)
 FDs:
-	idColaborador->numero, numeroPontos, tipo
+	idColaborador->numero, numeroPontos, tipo, idEquipa
 Formas:
 	BCNF:sim
 	3NF:sim
 
 Mota(idMota*, potencia, peso, velocidadeMax, idEquipa->Equipa)
 FDs:
-	idMota->potencia, peso, velocidadeMax
+	idMota->potencia, peso, velocidadeMax, idEquipa
 Formas:
 	BCNF:sim
 	3NF:sim
 
-Pneu(idPneu*, idMota->Mota, marca, rigidez, tipo)
+Pneu(idPneu*, marca, rigidez, tipo, idMota->Mota)
 FDs:
-	idPneu->idMota, marca, rigidez, tipo
+	idPneu->marca, rigidez, tipo, idMota
 Formas:
 	BCNF:sim
 	3NF:sim

@@ -80,11 +80,11 @@ CREATE TABLE Mota(
 DROP TABLE IF EXISTS Pneu;
 
 CREATE TABLE Pneu(
-	idPneu INTEGER PRIMARY KEY, 
-	idMota CONSTRAINT fk_pneu_idmota REFERENCES Mota(idMota) ON DELETE SET NULL ON UPDATE CASCADE, 
+	idPneu INTEGER PRIMARY KEY,  
 	marca TEXT CONSTRAINT nn_pneu_marca NOT NULL, 
 	rigidez TEXT CONSTRAINT nn_pneu_rigidez NOT NULL CONSTRAINT check_pneu_rigidez CHECK(rigidez = "MACIO" OR rigidez = "MEDIO" OR rigidez = "DURO"), 
-	tipo TEXT CONSTRAINT nn_pneu_tipo NOT NULL CONSTRAINT check_pneu_tipo CHECK(tipo = "TRASEIRO" OR tipo = "DIANTEIRO")
+	tipo TEXT CONSTRAINT nn_pneu_tipo NOT NULL CONSTRAINT check_pneu_tipo CHECK(tipo = "TRASEIRO" OR tipo = "DIANTEIRO"),
+	idMota CONSTRAINT fk_pneu_idmota REFERENCES Mota(idMota) ON DELETE SET NULL ON UPDATE CASCADE,
 );
 
 
