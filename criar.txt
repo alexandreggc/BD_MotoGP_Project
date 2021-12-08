@@ -114,10 +114,10 @@ DROP TABLE IF EXISTS Grid;
 
 CREATE TABLE Grid(
 	idCorrida INTEGER CONSTRAINT fk_grid_idcorrida REFERENCES Corrida(idCorrida) ON DELETE CASCADE ON UPDATE CASCADE, 
-	idPiloto INTEGER CONSTRAINT fk_grid_idpiloto REFERENCES Piloto(idPiloto) ON DELETE CASCADE ON UPDATE CASCADE, 
+	idColaborador INTEGER CONSTRAINT fk_grid_idpiloto REFERENCES Piloto(idColaborador) ON DELETE CASCADE ON UPDATE CASCADE, 
 	posicaoInicial INTEGER CONSTRAINT nn_grid_posicaoinicial NOT NULL CONSTRAINT check_grid_posicaoinicial CHECK(posicaoInicial > 0), 
 	posicaoFinal INTEGER CONSTRAINT nn_grid_posicaofinal NOT NULL CONSTRAINT check_grid_posicaofinal CHECK(posicaoFinal > 0),
-	PRIMARY KEY(idCorrida, idPiloto),
+	PRIMARY KEY(idCorrida, idColaborador),
 	UNIQUE(idCorrida, posicaoInicial),
 	UNIQUE(idCorrida, posicaoFinal)
 );
@@ -175,18 +175,18 @@ CREATE TABLE Bandeira(
 DROP TABLE IF EXISTS PilotoCorrida;
 
 CREATE TABLE PilotoCorrida(
-	idPiloto INTEGER CONSTRAINT fk_pilotocorrida_idpiloto REFERENCES Piloto(idPiloto) ON DELETE CASCADE ON UPDATE CASCADE,
+	idColaborador INTEGER CONSTRAINT fk_pilotocorrida_idpiloto REFERENCES Piloto(idColaborador) ON DELETE CASCADE ON UPDATE CASCADE,
 	idCorrida INTEGER CONSTRAINT fk_pilotocorrida_idcorrida REFERENCES Corrida(idCorrida) ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY(idPiloto, idCorrida)
+	PRIMARY KEY(idColaborador, idCorrida)
 );
 
 
 DROP TABLE IF EXISTS PilotoEvento;
 
 CREATE TABLE PilotoEvento(
-	idPiloto INTEGER CONSTRAINT fk_pilotoevento_idpiloto REFERENCES Piloto(idPiloto) ON DELETE CASCADE ON UPDATE CASCADE,
+	idColaborador INTEGER CONSTRAINT fk_pilotoevento_idpiloto REFERENCES Piloto(idColaborador) ON DELETE CASCADE ON UPDATE CASCADE,
 	idEvento INTEGER CONSTRAINT fk_pilotoevento_idevento REFERENCES Evento(idEvento) ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY(idPiloto, idEvento)
+	PRIMARY KEY(idColaborador, idEvento)
 );
 
 
