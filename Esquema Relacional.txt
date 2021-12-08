@@ -2,13 +2,13 @@ Esquema relacional
 
 Nacionalidade(idNacionalidade*, nome)
 Marca(idMarca*, nome, anoDeIngresso, idNacionalidade->Nacionalidade)
-Equipa(idEquipa*, nome, tipo, numeroPontos, idMarca->Marca)
-Colaborador(idColaborador*, nome, dataDeNascimento, idNacionalida->Nacionalidade)
-Engenheiro(idColaborador->Colaborador*, ramo, idEquipa->Equipa)
-Piloto(idColaborador->Colaborador*, numero, numeroPontos, tipo, idEquipa->Equipa)
+Equipa(idEquipa*, nome, tipo, idMarca->Marca)
 Mota(idMota*, potencia, peso, velocidadeMax, idEquipa->Equipa)
 Pneu(idPneu*, marca, rigidez, tipo, idMota->Mota)
-Circuito(idCircuito*, nome, pais, perimetro)
+Colaborador(idColaborador*, nome, dataDeNascimento, idNacionalida->Nacionalidade)
+Engenheiro(idColaborador->Colaborador*, ramo, idEquipa->Equipa)
+Piloto(idColaborador->Colaborador*, numero, numeroPontos, tipo, idEquipa->Equipa, idMota->Mota)
+Circuito(idCircuito*, nome, pais, perimetro, numSetores)
 Corrida(idCorrida*, nome, data, numVoltas, idCircuito->Circuito)
 Grid(idCorrida->Corrida*, idPiloto->Piloto*, posicaoInicial, posicaoFinal)
 ClassificacaoGeral(epoca*)??

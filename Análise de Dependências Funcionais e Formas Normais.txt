@@ -14,30 +14,9 @@ Formas:
 	BCNF:sim
 	3NF:sim
 
-Equipa(idEquipa*, nome, tipo, numeroPontos, idMarca->Marca)
+Equipa(idEquipa*, nome, tipo, idMarca->Marca)
 FDs:
-	idEquipa->nome, tipo, numeroPontos, idMarca
-Formas:
-	BCNF:sim
-	3NF:sim
-
-Colaborador(idColaborador*, nome, dataDeNascimento, idNacionalida->Nacionalidade)
-FDs:
-	idColaborador->nome, dataDeNascimento, idNacionalidade
-Formas:
-	BCNF:sim
-	3NF:sim
-
-Engenheiro(idColaborador->Colaborador*, ramo, idEquipa->Equipa)
-FDs:
-	idColaborador->ramo, idEquipa
-Formas:
-	BCNF:sim
-	3NF:sim
-
-Piloto(idColaborador->Colaborador*, numero, numeroPontos, tipo, idEquipa->Equipa)
-FDs:
-	idColaborador->numero, numeroPontos, tipo, idEquipa
+	idEquipa->nome, tipo, idMarca
 Formas:
 	BCNF:sim
 	3NF:sim
@@ -56,9 +35,30 @@ Formas:
 	BCNF:sim
 	3NF:sim
 
-Circuito(idCircuito*, nome, pais, perimetro)
+Colaborador(idColaborador*, nome, dataDeNascimento, idNacionalida->Nacionalidade)
 FDs:
-	idCircuito->nome, pais, perimetro
+	idColaborador->nome, dataDeNascimento, idNacionalidade
+Formas:
+	BCNF:sim
+	3NF:sim
+
+Engenheiro(idColaborador->Colaborador*, ramo, idEquipa->Equipa)
+FDs:
+	idColaborador->ramo, idEquipa
+Formas:
+	BCNF:sim
+	3NF:sim
+
+Piloto(idColaborador->Colaborador*, numero, numeroPontos, tipo, idEquipa->Equipa, idMota->Mota)
+FDs:
+	idColaborador->numero, numeroPontos, tipo, idEquipa, idMota
+Formas:
+	BCNF:sim
+	3NF:sim
+
+Circuito(idCircuito*, nome, pais, perimetro, numSetores)
+FDs:
+	idCircuito->nome, pais, perimetro, numSetores
 Formas:
 	BCNF:sim
 	3NF:sim
