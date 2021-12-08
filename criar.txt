@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS Marca;
 CREATE TABLE Marca(
 	idMarca INTEGER PRIMARY KEY,
 	nome TEXT CONSTRAINT nn_marca_nome NOT NULL, 
-	anoDeIngresso INTEGER CONSTRAINT check_marca_anodeingresso CHECK (anoDeIngresso >= 1949),
+	anoDeIngresso INTEGER CONSTRAINT nn_marca_anodeingresso NOT NULL CONSTRAINT check_marca_anodeingresso CHECK (anoDeIngresso >= 1949),
 	idNacionalidade INTEGER CONSTRAINT fk_marca_idnacionalidade REFERENCES Nacionalidade(idNacionalidade) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
