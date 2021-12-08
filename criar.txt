@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS Equipa;
 CREATE TABLE Equipa(
 	idEquipa INTEGER PRIMARY KEY, 
 	nome TEXT CONSTRAINT nn_equipa_nome NOT NULL, 
-	tipo TEXT CONSTRAINT nn_equipa_tipo CHECK (tipo = "FABRICA" OR tipo = "SATELITE"), 
+	tipo TEXT CONSTRAINT nn_equipa_tipo NOT NULL CONSTRAINT check_equipa_tipo CHECK (tipo = "FABRICA" OR tipo = "SATELITE"), 
 	idMarca INTEGER CONSTRAINT fk_equipa_idmarca REFERENCES Marca(idMarca) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -82,7 +82,7 @@ CREATE TABLE Piloto(
 	idColaborador INTEGER PRIMARY KEY CONSTRAINT fk_piloto_idcolaborador REFERENCES Colaborador(idColaborador) ON DELETE CASCADE ON UPDATE CASCADE, 
 	numero INTEGER CONSTRAINT nn_piloto_numero NOT NULL, 
 	numeroPontos INTEGER CONSTRAINT nn_piloto_numeropontos NOT NULL, 
-	tipo TEXT CONSTRAINT nn_piloto_tipo CHECK(tipo = "PRINCIPAL" OR tipo = "RESERVA"),
+	tipo TEXT CONSTRAINT nn_piloto_tipo NOT NULL CONSTRAINT check_piloto_tipo CHECK(tipo = "PRINCIPAL" OR tipo = "RESERVA"),
 	idEquipa INTEGER CONSTRAINT fk_piloto_idequipa REFERENCES Equipa(idEquipa) ON DELETE CASCADE ON UPDATE CASCADE,
 	idMota INTEGER CONSTRAINT fk_piloto_idmota REFERENCES Mota(idMota) ON DELETE RESTRICT ON UPDATE CASCADE
 );
