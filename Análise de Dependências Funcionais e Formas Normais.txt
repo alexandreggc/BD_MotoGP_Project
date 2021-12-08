@@ -1,57 +1,57 @@
 Análise de Dependências Funcionais e Formas Normais
 
-Marca(idMarca*, nome, anoDeIngresso)
+Nacionalidade(idNacionalidade*, nome)
 FDs:
-	idMarca->nome, anoDeIngresso
+	idNacionalidade->nome
 Formas:
 	BCNF:sim
 	3NF:sim
 
-Equipa(idEquipa*, nome, tipo, numeroPontos)
+Marca(idMarca*, nome, anoDeIngresso, idNacionalidade->Nacionalidade)
 FDs:
-	idEquipa->nome, tipo, numeroPontos
+	idMarca->nome, anoDeIngresso, idNacionalidade
 Formas:
 	BCNF:sim
 	3NF:sim
 
-Colaborador(idColaborador*, nome, dataDeNascimento)
+Equipa(idEquipa*, nome, tipo, numeroPontos, idMarca->Marca)
 FDs:
-	idColaborador->nome, dataDeNascimento
+	idEquipa->nome, tipo, numeroPontos, idMarca
 Formas:
 	BCNF:sim
 	3NF:sim
 
-Engenheiro(idColaborador->Colaborador*, ramo)
+Colaborador(idColaborador*, nome, dataDeNascimento, idNacionalida->Nacionalidade)
 FDs:
-	idColaborador->ramo
+	idColaborador->nome, dataDeNascimento, idNacionalidade
 Formas:
 	BCNF:sim
 	3NF:sim
 
-Piloto(idColaborador->Colaborador*, numero, numeroPontos, tipo)
+Engenheiro(idColaborador->Colaborador*, ramo, idEquipa->Equipa)
 FDs:
-	idColaborador->numero, numeroPontos, tipo
+	idColaborador->ramo, idEquipa
 Formas:
 	BCNF:sim
 	3NF:sim
 
-Mota(idMota*, potencia, peso, velocidadeMax)
+Piloto(idColaborador->Colaborador*, numero, numeroPontos, tipo, idEquipa->Equipa)
 FDs:
-	idMota->potencia, peso, velocidadeMax
+	idColaborador->numero, numeroPontos, tipo, idEquipa
 Formas:
 	BCNF:sim
 	3NF:sim
 
-Pneu(idPneu*, idMota->Mota, marca, rigidez, tipo)
+Mota(idMota*, potencia, peso, velocidadeMax, idEquipa->Equipa)
 FDs:
-	idPneu->idMota, marca, rigidez, tipo
+	idMota->potencia, peso, velocidadeMax, idEquipa
 Formas:
 	BCNF:sim
 	3NF:sim
 
-Corrida(idCorrida*, nome, data, numVoltas)
+Pneu(idPneu*, marca, rigidez, tipo, idMota->Mota)
 FDs:
-	idCorrida->nome, data, numVoltas
+	idPneu->marca, rigidez, tipo, idMota
 Formas:
 	BCNF:sim
 	3NF:sim
@@ -59,6 +59,13 @@ Formas:
 Circuito(idCircuito*, nome, pais, perimetro)
 FDs:
 	idCircuito->nome, pais, perimetro
+Formas:
+	BCNF:sim
+	3NF:sim
+
+Corrida(idCorrida*, nome, data, numVoltas, idCircuito->Circuito)
+FDs:
+	idCorrida->nome, data, numVoltas, idCircuito
 Formas:
 	BCNF:sim
 	3NF:sim
@@ -77,9 +84,9 @@ Formas:
 	BCNF:sim
 	3NF:sim
 
-Evento(idEvento*, volta, idCorrida->Corrida, idPiloto->Piloto)
+Evento(idEvento*, volta, idCorrida->Corrida)
 FDs:
-	idEvento->volta, idCorrida, idPiloto
+	idEvento->volta, idCorrida
 Formas:
 	BCNF:sim
 	3NF:sim
@@ -112,9 +119,16 @@ Formas:
 	BCNF:sim
 	3NF:sim
 
-Nacionalidade(idNacionalidade*, nome)
+PilotoCorrida(idPiloto->Piloto*, idCorrida->Corrida*)
 FDs:
-	idNacionalidade->nome
+	-
+Formas:
+	BCNF:sim
+	3NF:sim
+
+PilotoEvento(idPiloto->Piloto*, idEvento->Evento*)
+FDs:
+	-
 Formas:
 	BCNF:sim
 	3NF:sim
