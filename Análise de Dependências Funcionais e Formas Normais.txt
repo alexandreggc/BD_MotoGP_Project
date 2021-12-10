@@ -112,9 +112,9 @@ Formas:
 	BCNF:sim
 	3NF:sim
 
-Bandeira(idEvento->Evento*, cor*)
+Bandeira(idBandeira*, cor)
 FDs:
-	Triviais
+	idBandeira->cor
 Formas:
 	BCNF:sim
 	3NF:sim
@@ -133,7 +133,7 @@ Formas:
 	BCNF:sim
 	3NF:sim
 
-EventoBandeira(idEvento->Evento*, cor->Bandeira*)
+EventoBandeira(idEvento->Evento*, idBandeira->Bandeira*)
 FDs:
 	Triviais
 Formas:

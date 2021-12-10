@@ -169,9 +169,8 @@ CREATE TABLE Ultrapassagem(
 DROP TABLE IF EXISTS Bandeira;
 
 CREATE TABLE Bandeira(
-	idEvento INTEGER CONSTRAINT fk_bandeira_idevento REFERENCES Evento(idEvento) ON DELETE CASCADE ON UPDATE CASCADE, 
-	cor TEXT CONSTRAINT nn_bandeira_cor NOT NULL,
-	PRIMARY KEY(idEvento, cor)
+	idBandeira INTEGER PRIMARY KEY,
+	cor TEXT CONSTRAINT nn_bandeira_cor NOT NULL
 );
 
 
@@ -196,10 +195,9 @@ DROP TABLE IF EXISTS EventoBandeira;
 
 CREATE TABLE EventoBandeira(
 	idEvento INTEGER CONSTRAINT fk_eventobandeira_idevento REFERENCES Evento(idEvento) ON DELETE CASCADE ON UPDATE CASCADE,
-	cor TEXT CONSTRAINT fk_eventobandeira_cor REFERENCES Bandeira(cor) ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY(idEvento, cor) 
+	idBandeira INTEGER CONSTRAINT fk_eventobandeira_idBandeira REFERENCES Bandeira(idBandeira) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY(idEvento, idBandeira) 
 );
-
 
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;
