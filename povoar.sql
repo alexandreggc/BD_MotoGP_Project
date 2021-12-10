@@ -1043,20 +1043,20 @@ VALUES (
 --Table: Bandeira
 
 INSERT INTO Bandeira(
-	idEvento,
+	idBandeira,
 	cor
 )
 VALUES (
-	2,
+	1,
 	'Vermelha'
 );
 
 INSERT INTO Bandeira(
-	idEvento,
+	idBandeira,
 	cor
 )
 VALUES (
-	6,
+	2,
 	'Amarela'
 );
 
@@ -1224,20 +1224,20 @@ VALUES (
 
 INSERT INTO EventoBandeira(
 	idEvento,
-	cor
+	idBandeira
 )
 VALUES (
 	2,
-	'Vermelha'
+	1
 );
 
 INSERT INTO EventoBandeira(
 	idEvento,
-	cor
+	idBandeira
 )
 VALUES (
 	6,
-	'Amarela'
+	2
 );  
 
 
