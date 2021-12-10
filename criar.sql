@@ -129,7 +129,7 @@ CREATE TABLE ClassificacaoGeral(
 	epoca INTEGER CONSTRAINT check_classificacaogeral_epoca CHECK(epoca >= 1949),
 	lugar INTEGER CONSTRAINT check_classificacaogeral_lugar CHECK(lugar > 0),
 	idColaborador INTEGER CONSTRAINT fk_classificacaogeral_idcolaborador REFERENCES Piloto(idColaborador) ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY(epoca, lugar idColaborador)
+	PRIMARY KEY(epoca, lugar, idColaborador)
 );
 
 
@@ -198,7 +198,7 @@ CREATE TABLE EventoBandeira(
 	idEvento INTEGER CONSTRAINT fk_eventobandeira_idevento REFERENCES Evento(idEvento) ON DELETE CASCADE ON UPDATE CASCADE,
 	cor TEXT CONSTRAINT fk_eventobandeira_cor REFERENCES Bandeira(cor) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY(idEvento, cor) 
-)
+);
 
 
 COMMIT TRANSACTION;
