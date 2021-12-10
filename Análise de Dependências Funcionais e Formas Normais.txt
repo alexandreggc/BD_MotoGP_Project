@@ -70,16 +70,16 @@ Formas:
 	BCNF:sim
 	3NF:sim
 
-Grid(idCorrida->Corrida*, idPiloto->Piloto*, posicaoInicial, posicaoFinal)
+Grid(idCorrida->Corrida*, idColaborador->Piloto*, posicaoInicial, posicaoFinal)
 FDs:
-	idCorrida, idPiloto->posicaoInicial, posicaoFinal
+	idCorrida, idColaborador->posicaoInicial, posicaoFinal
 Formas:
 	BCNF:sim
 	3NF:sim
 
-ClassificacaoGeral(epoca*)??
+ClassificacaoGeral(epoca*, lugar*, idColaborador->Piloto*)
 FDs:
-	-
+	Triviais
 Formas:
 	BCNF:sim
 	3NF:sim
@@ -114,21 +114,28 @@ Formas:
 
 Bandeira(idEvento->Evento*, cor*)
 FDs:
-	-
+	Triviais
 Formas:
 	BCNF:sim
 	3NF:sim
 
 PilotoCorrida(idPiloto->Piloto*, idCorrida->Corrida*)
 FDs:
-	-
+	Triviais
 Formas:
 	BCNF:sim
 	3NF:sim
 
 PilotoEvento(idPiloto->Piloto*, idEvento->Evento*)
 FDs:
-	-
+	Triviais
+Formas:
+	BCNF:sim
+	3NF:sim
+
+EventoBandeira(idEvento->Evento*, cor->Bandeira*)
+FDs:
+	Triviais
 Formas:
 	BCNF:sim
 	3NF:sim

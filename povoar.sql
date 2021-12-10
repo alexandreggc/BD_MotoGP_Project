@@ -1220,13 +1220,71 @@ VALUES (
 );
 
 
+--Table: EventoBandeira
+
+INSERT INTO EventoBandeira(
+	idEvento,
+	cor
+)
+VALUES (
+	2,
+	'Vermelha'
+);
+
+INSERT INTO EventoBandeira(
+	idEvento,
+	cor
+)
+VALUES (
+	6,
+	'Amarela'
+);  
+
+
 --Table: ClassificacaoGeral
 
 INSERT INTO ClassificacaoGeral(
-	epoca
+	epoca,
+	lugar,
+	idColaborador
 )
 VALUES (
-	2021
+	2021,
+	1,
+	5
+);
+
+INSERT INTO ClassificacaoGeral(
+	epoca,
+	lugar,
+	idColaborador
+)
+VALUES (
+	2021,
+	2,
+	10
+);
+
+INSERT INTO ClassificacaoGeral(
+	epoca,
+	lugar,
+	idColaborador
+)
+VALUES (
+	2021,
+	3,
+	12
+);
+
+INSERT INTO ClassificacaoGeral(
+	epoca,
+	lugar,
+	idColaborador
+)
+VALUES (
+	2021,
+	4,
+	7
 );
 
 

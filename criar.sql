@@ -114,7 +114,7 @@ DROP TABLE IF EXISTS Grid;
 
 CREATE TABLE Grid(
 	idCorrida INTEGER CONSTRAINT fk_grid_idcorrida REFERENCES Corrida(idCorrida) ON DELETE CASCADE ON UPDATE CASCADE, 
-	idColaborador INTEGER CONSTRAINT fk_grid_idpiloto REFERENCES Piloto(idColaborador) ON DELETE CASCADE ON UPDATE CASCADE, 
+	idColaborador INTEGER CONSTRAINT fk_grid_idcolaborador REFERENCES Piloto(idColaborador) ON DELETE CASCADE ON UPDATE CASCADE, 
 	posicaoInicial INTEGER CONSTRAINT nn_grid_posicaoinicial NOT NULL CONSTRAINT check_grid_posicaoinicial CHECK(posicaoInicial > 0), 
 	posicaoFinal INTEGER CONSTRAINT nn_grid_posicaofinal NOT NULL CONSTRAINT check_grid_posicaofinal CHECK(posicaoFinal > 0),
 	PRIMARY KEY(idCorrida, idColaborador),
@@ -126,7 +126,10 @@ CREATE TABLE Grid(
 DROP TABLE IF EXISTS ClassificacaoGeral;
 
 CREATE TABLE ClassificacaoGeral(
-	epoca INTEGER PRIMARY KEY CONSTRAINT check_classificacaogeral_epoca CHECK(epoca >= 1949)
+	epoca INTEGER CONSTRAINT check_classificacaogeral_epoca CHECK(epoca >= 1949),
+	lugar INTEGER CONSTRAINT check_classificacaogeral_lugar CHECK(lugar > 0),
+	idColaborador INTEGER CONSTRAINT fk_classificacaogeral_idcolaborador REFERENCES Piloto(idColaborador) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY(epoca, lugar idColaborador)
 );
 
 
@@ -167,7 +170,7 @@ DROP TABLE IF EXISTS Bandeira;
 
 CREATE TABLE Bandeira(
 	idEvento INTEGER CONSTRAINT fk_bandeira_idevento REFERENCES Evento(idEvento) ON DELETE CASCADE ON UPDATE CASCADE, 
-	cor TEXT CONSTRAINT nn_bandeiPira_cor NOT NULL,
+	cor TEXT CONSTRAINT nn_bandeira_cor NOT NULL,
 	PRIMARY KEY(idEvento, cor)
 );
 
@@ -188,6 +191,14 @@ CREATE TABLE PilotoEvento(
 	idEvento INTEGER CONSTRAINT fk_pilotoevento_idevento REFERENCES Evento(idEvento) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY(idColaborador, idEvento)
 );
+
+DROP TABLE IF EXISTS EventoBandeira;
+
+CREATE TABLE EventoBandeira(
+	idEvento INTEGER CONSTRAINT fk_eventobandeira_idevento REFERENCES Evento(idEvento) ON DELETE CASCADE ON UPDATE CASCADE,
+	cor TEXT CONSTRAINT fk_eventobandeira_cor REFERENCES Bandeira(cor) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY(idEvento, cor) 
+)
 
 
 COMMIT TRANSACTION;
