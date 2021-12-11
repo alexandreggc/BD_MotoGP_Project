@@ -120,6 +120,32 @@ VALUES (
 	5
 );
 
+INSERT INTO Marca (
+	idMarca,
+	nome,
+	anoDeIngresso,
+	idNacionalidade
+)
+VALUES (
+	4,
+	'Ferrari',
+	1969,
+	8
+);
+
+INSERT INTO Marca (
+	idMarca,
+	nome,
+	anoDeIngresso,
+	idNacionalidade
+)
+VALUES (
+	5,
+	'Opel',
+	2021,
+	3
+);
+
 
 --Table: Equipa
 
@@ -173,6 +199,32 @@ VALUES (
 	'Team Suzuki',
 	'FABRICA',
 	3
+);
+
+INSERT INTO Equipa (
+	idEquipa,
+	nome,
+	tipo,
+	idMarca
+)
+VALUES (
+	5,
+	'Scuderia Ferrari',
+	'FABRICA',
+	4
+);
+
+INSERT INTO Equipa (
+	idEquipa,
+	nome,
+	tipo,
+	idMarca
+)
+VALUES (
+	6,
+	'Opel Racing',
+	'FABRICA',
+	5
 );
 
 
@@ -233,9 +285,39 @@ INSERT INTO Mota(
 VALUES (
 	4,
 	270,
-	165,
-	324,
+	169,
+	319,
 	4
+);
+
+INSERT INTO Mota(
+	idMota,
+	potencia,
+	peso,
+	velocidadeMax,
+	idEquipa
+)
+VALUES (
+	5,
+	270,
+	170,
+	319,
+	5
+);
+
+INSERT INTO Mota(
+	idMota,
+	potencia,
+	peso,
+	velocidadeMax,
+	idEquipa
+)
+VALUES (
+	6,
+	258,
+	173,
+	309,
+	6
 );
 
 
@@ -391,6 +473,66 @@ VALUES (
 	NULL
 );
 
+INSERT INTO Pneu(
+	idPneu,
+	marca,
+	rigidez,
+	tipo,
+	idMota
+)
+VALUES (
+	11,
+	'Pirelli',
+	'MEDIO',
+	'TRASEIRO',
+	5
+);
+
+INSERT INTO Pneu(
+	idPneu,
+	marca,
+	rigidez,
+	tipo,
+	idMota
+)
+VALUES (
+	12,
+	'Pirelli',
+	'MEDIO',
+	'DIANTEIRO',
+	5
+);
+
+INSERT INTO Pneu(
+	idPneu,
+	marca,
+	rigidez,
+	tipo,
+	idMota
+)
+VALUES (
+	13,
+	'Pirelli',
+	'MEDIO',
+	'TRASEIRO',
+	6
+);
+
+INSERT INTO Pneu(
+	idPneu,
+	marca,
+	rigidez,
+	tipo,
+	idMota
+)
+VALUES (
+	14,
+	'Pirelli',
+	'DURO',
+	'DIANTEIRO',
+	6
+);
+
 --Table: Colaborador
 
 INSERT INTO Colaborador (
@@ -532,7 +674,7 @@ INSERT INTO Colaborador (
 VALUES (
 	11,
 	'Kobayashi Miura',
-	'1988-6-20',
+	'1988-06-20',
 	5
 );
 
@@ -547,6 +689,71 @@ VALUES (
 	'Miguel Oliveira',
 	'1995-01-04',
 	1
+);
+
+INSERT INTO Colaborador (
+	idColaborador,
+	nome,
+	dataDeNascimento,
+	idNacionalidade
+)
+VALUES (
+	13,
+	'Giorgio Chiellini',
+	'1982-03-25',
+	8
+);
+
+INSERT INTO Colaborador (
+	idColaborador,
+	nome,
+	dataDeNascimento,
+	idNacionalidade
+)
+VALUES (
+	14,
+	'Leonardo Bonnuci',
+	'1983-12-20',
+	8
+);
+
+INSERT INTO Colaborador (
+	idColaborador,
+	nome,
+	dataDeNascimento,
+	idNacionalidade
+)
+VALUES (
+	15,
+	'Johan Liebert',
+	'1999-01-02',
+	3
+);
+
+INSERT INTO Colaborador (
+	idColaborador,
+	nome,
+	dataDeNascimento,
+	idNacionalidade
+)
+VALUES (
+	16,
+	'Heinemann Lunge',
+	'1980-07-21',
+	3
+);
+
+INSERT INTO Colaborador (
+	idColaborador,
+	nome,
+	dataDeNascimento,
+	idNacionalidade
+)
+VALUES (
+	17,
+	'Marko Tenma',
+	'1992-07-18',
+	3
 );
 
 
@@ -596,6 +803,16 @@ VALUES (
 	2
 );
 
+INSERT INTO Engenheiro(
+	idColaborador,
+	ramo,
+	idEquipa
+)
+VALUES (
+	5,
+	'Aerodinamica',
+	6
+);
 
 --Table: Piloto
 
@@ -627,7 +844,7 @@ INSERT INTO Piloto(
 VALUES (
 	6,
 	2,
-	20,
+	0,
 	'RESERVA',
 	1,
 	1
@@ -661,7 +878,7 @@ INSERT INTO Piloto(
 VALUES (
 	8,
 	4,
-	10,
+	0,
 	'RESERVA',
 	2,
 	2
@@ -712,7 +929,7 @@ INSERT INTO Piloto(
 VALUES (
 	11,
 	7,
-	5,
+	0,
 	'RESERVA',
 	4,
 	4
@@ -733,6 +950,74 @@ VALUES (
 	'PRINCIPAL',
 	4,
 	4
+);
+
+INSERT INTO Piloto(
+	idColaborador,
+	numero,
+	numeroPontos,
+	tipo,
+	idEquipa,
+	idMota
+)
+VALUES (
+	13,
+	9,
+	10,
+	'PRINCIPAL',
+	5,
+	5
+);
+
+INSERT INTO Piloto(
+	idColaborador,
+	numero,
+	numeroPontos,
+	tipo,
+	idEquipa,
+	idMota
+)
+VALUES (
+	14,
+	10,
+	0,
+	'RESERVA',
+	5,
+	5
+);
+
+INSERT INTO Piloto(
+	idColaborador,
+	numero,
+	numeroPontos,
+	tipo,
+	idEquipa,
+	idMota
+)
+VALUES (
+	15,
+	11,
+	0,
+	'PRINCIPAL',
+	6,
+	6
+);
+
+INSERT INTO Piloto(
+	idColaborador,
+	numero,
+	numeroPontos,
+	tipo,
+	idEquipa,
+	idMota
+)
+VALUES (
+	16,
+	12,
+	0,
+	'RESERVA',
+	6,
+	6
 );
 
 
@@ -768,6 +1053,51 @@ VALUES (
 	7
 );
 
+INSERT INTO Circuito(
+	idCircuito,
+	nome,
+	pais,
+	perimetro,
+	numSetores
+)
+VALUES (
+	3,
+	'Circuito de Kemmelberg',
+	'Belgica',
+	4.3,
+	8
+);
+
+INSERT INTO Circuito(
+	idCircuito,
+	nome,
+	pais,
+	perimetro,
+	numSetores
+)
+VALUES (
+	4,
+	'Circuito de Al Hattadam',
+	'Dubai',
+	4.8,
+	9
+);
+
+INSERT INTO Circuito(
+	idCircuito,
+	nome,
+	pais,
+	perimetro,
+	numSetores
+)
+VALUES (
+	5,
+	'Circuito de Richmond',
+	'EUA',
+	4.5,
+	7
+);
+
 
 --Table: Corrida
 
@@ -799,6 +1129,51 @@ VALUES (
 	2021-05-01,
 	76,
 	2
+);
+
+INSERT INTO Corrida(
+	idCorrida,
+	nome,
+	data,
+	numVoltas,
+	idCircuito
+)
+VALUES (
+	3,
+	'Grande Premio da Belgica',
+	2021-05-16,
+	78,
+	3
+);
+
+INSERT INTO Corrida(
+	idCorrida,
+	nome,
+	data,
+	numVoltas,
+	idCircuito
+)
+VALUES (
+	4,
+	'Grande Premio do Dubai',
+	2021-05-30,
+	69,
+	4
+);
+
+INSERT INTO Corrida(
+	idCorrida,
+	nome,
+	data,
+	numVoltas,
+	idCircuito
+)
+VALUES (
+	5,
+	'Grande Premio dos EUA',
+	2021-06-07,
+	72,
+	5
 );
 
 
@@ -908,6 +1283,58 @@ VALUES (
 	3
 );
 
+INSERT INTO Grid(
+	idCorrida,
+	idColaborador,
+	posicaoInicial,
+	posicaoFinal
+)
+VALUES (
+	1,
+	13,
+	6,
+	5
+);
+
+INSERT INTO Grid(
+	idCorrida,
+	idColaborador,
+	posicaoInicial,
+	posicaoFinal
+)
+VALUES (
+	2,
+	13,
+	5,
+	5
+);
+
+INSERT INTO Grid(
+	idCorrida,
+	idColaborador,
+	posicaoInicial,
+	posicaoFinal
+)
+VALUES (
+	1,
+	15,
+	5,
+	6
+);
+
+INSERT INTO Grid(
+	idCorrida,
+	idColaborador,
+	posicaoInicial,
+	posicaoFinal
+)
+VALUES (
+	2,
+	15,
+	6,
+	6
+);
+
 
 --Table: Evento
 
@@ -977,6 +1404,73 @@ VALUES (
 	2
 );
 
+INSERT INTO Evento(
+	idEvento,
+	volta,
+	idCorrida
+)
+VALUES (
+	7,
+	31,
+	1
+);
+
+INSERT INTO Evento(
+	idEvento,
+	volta,
+	idCorrida
+)
+VALUES (
+	8,
+	47,
+	1
+);
+
+INSERT INTO Evento(
+	idEvento,
+	volta,
+	idCorrida
+)
+VALUES (
+	9,
+	1,
+	2
+);
+
+INSERT INTO Evento(
+	idEvento,
+	volta,
+	idCorrida
+)
+VALUES (
+	10,
+	70,
+	2
+);
+
+INSERT INTO Evento(
+	idEvento,
+	volta,
+	idCorrida
+)
+VALUES (
+	11,
+	2,
+	2
+);
+
+INSERT INTO Evento(
+	idEvento,
+	volta,
+	idCorrida
+)
+VALUES (
+	12,
+	48,
+	1
+);
+
+
 --Table: Acidente
 
 INSERT INTO Acidente(
@@ -986,6 +1480,33 @@ INSERT INTO Acidente(
 VALUES (
 	2,
 	3
+);
+
+INSERT INTO Acidente(
+	idEvento,
+	setor
+)
+VALUES (
+	8,
+	4
+);
+
+INSERT INTO Acidente(
+	idEvento,
+	setor
+)
+VALUES (
+	9,
+	1
+);
+
+INSERT INTO Acidente(
+	idEvento,
+	setor
+)
+VALUES (
+	10,
+	6
 );
 
 
@@ -998,6 +1519,24 @@ INSERT INTO Outro(
 VALUES (
 	6,
 	"Inicio de precipitacao moderada"
+);
+
+INSERT INTO Outro(
+	idEvento,
+	descricao
+)
+VALUES (
+	11,
+	"Detritos na pista"
+);
+
+INSERT INTO Outro(
+	idEvento,
+	descricao
+)
+VALUES (
+	12,
+	"Detritos na pista"
 );
 
 
@@ -1039,6 +1578,15 @@ VALUES (
 	5
 );
 
+INSERT INTO Ultrapassagem(
+	idEvento,
+	setor
+)
+VALUES (
+	7,
+	2
+);
+
 
 --Table: Bandeira
 
@@ -1057,6 +1605,42 @@ INSERT INTO Bandeira(
 )
 VALUES (
 	2,
+	'Amarela'
+);
+
+INSERT INTO Bandeira(
+	idBandeira,
+	cor
+)
+VALUES (
+	3,
+	'Vermelha'
+);
+
+INSERT INTO Bandeira(
+	idBandeira,
+	cor
+)
+VALUES (
+	4,
+	'Amarela'
+);
+
+INSERT INTO Bandeira(
+	idBandeira,
+	cor
+)
+VALUES (
+	5,
+	'Amarela'
+);
+
+INSERT INTO Bandeira(
+	idBandeira,
+	cor
+)
+VALUES (
+	6,
 	'Amarela'
 );
 
@@ -1132,6 +1716,42 @@ INSERT INTO PilotoCorrida(
 )
 VALUES (
 	12,
+	2
+);
+
+INSERT INTO PilotoCorrida(
+	idColaborador,
+	idCorrida
+)
+VALUES (
+	13,
+	1
+);
+
+INSERT INTO PilotoCorrida(
+	idColaborador,
+	idCorrida
+)
+VALUES (
+	13,
+	2
+);
+
+INSERT INTO PilotoCorrida(
+	idColaborador,
+	idCorrida
+)
+VALUES (
+	15,
+	1
+);
+
+INSERT INTO PilotoCorrida(
+	idColaborador,
+	idCorrida
+)
+VALUES (
+	15,
 	2
 );
 
@@ -1219,6 +1839,60 @@ VALUES (
 	5
 );
 
+INSERT INTO PilotoEvento(
+	idColaborador,
+	idEvento
+)
+VALUES (
+	13,
+	7
+);
+
+INSERT INTO PilotoEvento(
+	idColaborador,
+	idEvento
+)
+VALUES (
+	15,
+	7
+);
+
+INSERT INTO PilotoEvento(
+	idColaborador,
+	idEvento
+)
+VALUES (
+	15,
+	8
+);
+
+INSERT INTO PilotoEvento(
+	idColaborador,
+	idEvento
+)
+VALUES (
+	15,
+	9
+);
+
+INSERT INTO PilotoEvento(
+	idColaborador,
+	idEvento
+)
+VALUES (
+	5,
+	10
+);
+
+INSERT INTO PilotoEvento(
+	idColaborador,
+	idEvento
+)
+VALUES (
+	10,
+	10
+);
+
 
 --Table: EventoBandeira
 
@@ -1238,7 +1912,25 @@ INSERT INTO EventoBandeira(
 VALUES (
 	6,
 	2
-);  
+);
+
+INSERT INTO EventoBandeira(
+	idEvento,
+	idBandeira
+)
+VALUES (
+	8,
+	3
+);
+
+INSERT INTO EventoBandeira(
+	idEvento,
+	idBandeira
+)
+VALUES (
+	9,
+	4
+);
 
 
 --Table: ClassificacaoGeral
@@ -1285,6 +1977,28 @@ VALUES (
 	2021,
 	4,
 	7
+);
+
+INSERT INTO ClassificacaoGeral(
+	epoca,
+	lugar,
+	idColaborador
+)
+VALUES (
+	2021,
+	5,
+	13
+);
+
+INSERT INTO ClassificacaoGeral(
+	epoca,
+	lugar,
+	idColaborador
+)
+VALUES (
+	2021,
+	6,
+	15
 );
 
 
