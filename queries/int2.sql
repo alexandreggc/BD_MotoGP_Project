@@ -2,7 +2,6 @@
 .headers on
 .nullvalue NULL
 
-SELECT nome, numeroPontos
-FROM Colaborador, Piloto
-WHERE Colaborador.idColaborador = Piloto.idColaborador
-ORDER BY numeroPontos DESC;
+SELECT nome
+FROM Colaborador JOIN Piloto USING(idColaborador)
+WHERE idEquipa NOT IN (SELECT idEquipa FROM Equipa WHERE idMarca IN (SELECT idMarca FROM Marca WHERE nome = "Mercedes"));
