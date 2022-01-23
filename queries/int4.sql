@@ -2,6 +2,6 @@
 .headers on
 .nullvalue NULL
 
-SELECT nome
-FROM Marca
-WHERE idMarca in (SELECT idMarca FROM Equipa WHERE tipo = "SATELITE");
+SELECT (SELECT Marca.nome FROM Marca JOIN Equipa USING(idMarca) WHERE Equipa.idEquipa = Piloto.idEquipa) AS nomeMarca, (SELECT Equipa.nome FROM Equipa WHERE Equipa.idEquipa = Piloto.idEquipa) AS nomeEquipa, nome, max(numeropontos) AS maximoPontos
+FROM Piloto JOIN Colaborador USING(idColaborador)
+GROUP BY nomeMarca;

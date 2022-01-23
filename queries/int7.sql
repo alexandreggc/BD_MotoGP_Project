@@ -2,6 +2,8 @@
 .headers on
 .nullvalue NULL
 
-SELECT COUNT(*)
+SELECT (SELECT nome FROM Nacionalidade WHERE Nacionalidade.idNacionalidade = Colaborador.idNacionalidade) AS nomeNacionalidade, COUNT(*) as maximoColaboradores
 FROM Colaborador
-WHERE idNacionalidade IN(SELECT idNacionalidade FROM Nacionalidade WHERE nome = "Portuguesa");
+GROUP BY idNacionalidade
+HAVING maximoColaboradores = (SELECT MAX(numeroColaboradores) FROM (SELECT (SELECT nome FROM Nacionalidade WHERE Nacionalidade.idNacionalidade = Colaborador.idNacionalidade), COUNT(*) AS numeroColaboradores FROM Colaborador GROUP BY idNacionalidade));
+

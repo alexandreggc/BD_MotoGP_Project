@@ -2,6 +2,7 @@
 .headers on
 .nullvalue NULL
 
-SELECT COUNT(*)
-FROM Acidente
-WHERE idEvento IN(SELECT idEvento FROM Evento WHERE idCorrida IN(SELECT idCorrida FROM Corrida WHERE nome = "Grande Premio de Italia"));
+SELECT nome AS nomeCorrida, COUNT(idEvento) AS numeroAcidentes
+FROM Corrida, Acidente JOIN Evento USING(idEvento)
+WHERE Evento.idCorrida IN (SELECT idCorrida FROM Corrida WHERE nome = nomeCorrida)
+group by nomeCorrida;

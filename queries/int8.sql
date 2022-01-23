@@ -2,8 +2,7 @@
 .headers on
 .nullvalue NULL
 
-SELECT nome, SUM(numeroPontos) AS pontosEquipa
-FROM Equipa, Piloto
-WHERE Equipa.idEquipa = Piloto.idEquipa
-GROUP BY nome
-ORDER BY pontosEquipa DESC;
+SELECT Marca.nome AS nomeMarca, Colaborador.nome AS nomePiloto
+FROM Marca, Colaborador JOIN Piloto USING(idColaborador)
+WHERE Piloto.idEquipa IN (SELECT idEquipa FROM Equipa WHERE idMarca = Marca.idMarca) AND Colaborador.idNacionalidade = Marca.idNacionalidade AND idColaborador IN(SELECT idColaborador FROM Grid)
+GROUP BY nomeMarca;
