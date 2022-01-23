@@ -4,7 +4,7 @@
 
 PRAGMA foreign_keys = ON;
 
-Select * FROM Evento;
+SELECT * FROM Piloto;
 
 INSERT INTO Circuito(
 	idCircuito,
@@ -14,9 +14,9 @@ INSERT INTO Circuito(
 	numSetores
 )
 VALUES (
-	99,
-	'Circuito de Portimao',
-	'Portugal',
+	90,
+	'Circuito de Berlim',
+	'Alemanha',
 	4.5,
 	7
 );
@@ -29,41 +29,139 @@ INSERT INTO Corrida(
 	idCircuito
 )
 VALUES (
-	99,
-	'Grande Premio de Portugal',
+	90,
+	'Grande Premio Alemao',
 	2021-04-25,
 	72,
-	99
+	90
 );
 
-INSERT INTO Evento(
-	idEvento,
-	volta,
-	idCorrida
+INSERT INTO Nacionalidade (
+	idNacionalidade,
+	nome
 )
 VALUES (
-	99,
-	80,
-	99
+	1,
+	'Portuguesa'
 );
 
-Select * FROM Evento;
-
-INSERT INTO Evento(
-	idEvento,
-	volta,
-	idCorrida
+INSERT INTO Marca (
+	idMarca,
+	nome,
+	anoDeIngresso,
+	idNacionalidade
 )
 VALUES (
-	98,
-	70,
-	99
+	90,
+	'Tuga',
+	1999,
+	1
 );
 
-Select * FROM Evento;
+INSERT INTO Equipa (
+	idEquipa,
+	nome,
+	tipo,
+	idMarca
+)
+VALUES (
+	90,
+	'Tuga',
+	'FABRICA',
+	90
+);
 
-UPDATE Evento
-SET volta = 90
-WHERE idEvento = 98;
+INSERT INTO Mota(
+	idMota,
+	potencia,
+	peso,
+	velocidadeMax,
+	idEquipa
+)
+VALUES (
+	90,
+	280,
+	160,
+	335,
+	90
+);
 
-Select * FROM Evento;
+INSERT INTO Colaborador (
+	idColaborador,
+	nome,
+	dataDeNascimento,
+	idNacionalidade
+)
+VALUES (
+	90,
+	'Maria Leal',
+	'1983-12-20',
+	1
+);
+
+INSERT INTO Piloto(
+	idColaborador,
+	numero,
+	numeroPontos,
+	tipo,
+	idEquipa,
+	idMota
+)
+VALUES (
+	90,
+	90,
+	100,
+	'RESERVA',
+	90,
+	90
+);
+
+SELECT * FROM Piloto;
+
+INSERT INTO Grid(
+	idCorrida,
+	idColaborador,
+	posicaoInicial,
+	posicaoFinal
+)
+VALUES (
+	90,
+	90,
+	6,
+	2
+);
+
+SELECT * FROM Piloto;
+
+DELETE FROM Grid WHERE (idColaborador = 90 AND idCorrida = 90);
+
+INSERT INTO Grid(
+	idCorrida,
+	idColaborador,
+	posicaoInicial,
+	posicaoFinal
+)
+VALUES (
+	90,
+	90,
+	6,
+	1
+);
+
+SELECT * FROM Piloto;
+
+UPDATE Grid
+SET posicaoFinal = 2
+WHERE (idColaborador = 90 AND idCorrida = 90);
+
+SELECT * FROM Piloto;
+
+UPDATE Grid
+SET posicaoFinal = 1
+WHERE (idColaborador = 90 AND idCorrida = 90);
+
+SELECT * FROM Piloto;
+
+DELETE FROM Grid WHERE (idColaborador = 90 AND idCorrida = 90);
+
+SELECT * FROM Piloto;

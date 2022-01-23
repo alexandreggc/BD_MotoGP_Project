@@ -4,7 +4,7 @@
 
 PRAGMA foreign_keys = ON;
 
-SELECT * FROM PNEU;
+SELECT * FROM Pneu;
 
 INSERT INTO Nacionalidade (
 	idNacionalidade,
@@ -71,7 +71,7 @@ VALUES (
 	99
 );
 
-SELECT * FROM PNEU;
+SELECT * FROM Pneu;
 
 INSERT INTO Pneu(
 	idPneu,
@@ -88,7 +88,7 @@ VALUES (
 	99
 );
 
-SELECT * FROM PNEU;
+SELECT * FROM Pneu;
 
 INSERT INTO Pneu(
 	idPneu,
@@ -105,4 +105,39 @@ VALUES (
 	99
 );
 
-SELECT * FROM PNEU;
+SELECT * FROM Pneu;
+
+UPDATE Pneu
+SET idMota = NULL
+WHERE idPneu = 98;
+
+SELECT * FROM Pneu;
+
+INSERT INTO Pneu(
+	idPneu,
+	marca,
+	rigidez,
+	tipo,
+	idMota
+)
+VALUES (
+	97,
+	'Pirelli',
+	'MACIO',
+	'TRASEIRO',
+	NULL
+);
+
+SELECT * FROM Pneu;
+
+UPDATE Pneu
+SET idMota = 99
+WHERE idPneu = 97;
+
+SELECT * FROM Pneu;
+
+UPDATE Pneu
+SET idMota = 99
+WHERE idPneu = 98;
+
+SELECT * FROM Pneu;

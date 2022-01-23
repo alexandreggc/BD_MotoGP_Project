@@ -11,3 +11,11 @@ WHEN((SELECT COUNT(*) FROM Pneu WHERE idMota = New.idMota) = 2)
 BEGIN
 	SELECT RAISE(ROLLBACK, "A mota selecionada já tem dois pneus");
 END;
+
+CREATE TRIGGER IF NOT EXISTS UpdatePneu
+BEFORE UPDATE ON Pneu
+FOR EACH ROW
+WHEN((SELECT COUNT(*) FROM Pneu WHERE idMota = New.idMota) = 2)
+BEGIN
+	SELECT RAISE(ROLLBACK, "A mota selecionada já tem dois pneus");
+END;
